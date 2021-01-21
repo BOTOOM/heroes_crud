@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.3-beta1" use-changelog="false" last-position="0,276" last-zoom="1" max-obj-count="4"
+	 default-schema="public" default-owner="postgres">
+<database name="new_database" is-template="false" allow-conns="true">
+</database>
+
+<schema name="public" layer="0" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<table name="publisher" layer="0" collapse-mode="2" pagination="true" attribs-page="0" ext-attribs-page="0" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="620" y="480"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="name" not-null="true">
+		<type name="varchar" length="50"/>
+	</column>
+	<column name="active">
+		<type name="boolean" length="0"/>
+	</column>
+	<column name="create_in">
+		<type name="timestamp" length="0"/>
+	</column>
+	<constraint name="publisher_pk" type="pk-constr" table="public.publisher">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="hero" layer="0" collapse-mode="2" max-obj-count="7" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="920" y="480"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="name" not-null="true">
+		<type name="varchar" length="100"/>
+	</column>
+	<column name="age">
+		<type name="smallint" length="0"/>
+	</column>
+	<column name="money">
+		<type name="decimal" length="20" precision="2"/>
+	</column>
+	<column name="create_in">
+		<type name="timestamp" length="0"/>
+	</column>
+	<constraint name="hero_pk" type="pk-constr" table="public.hero">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="power" layer="0" collapse-mode="2" max-obj-count="4" z-value="0">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="940" y="780"/>
+	<column name="id" not-null="true">
+		<type name="serial" length="0"/>
+	</column>
+	<column name="name" not-null="true">
+		<type name="varchar" length="200"/>
+	</column>
+	<column name="create_in">
+		<type name="timestamp" length="0"/>
+	</column>
+	<constraint name="power_pk" type="pk-constr" table="public.power">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="publisher_has_many_hero" type="rel1n" layer="0"
+	 src-col-pattern="{st}_{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#e894f7"
+	 src-table="public.publisher"
+	 dst-table="public.hero"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="hero_has_many_power" type="rel1n" layer="0"
+	 src-col-pattern="{st}_{sc}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#6aa921"
+	 src-table="public.hero"
+	 dst-table="public.power"
+	 src-required="false" dst-required="false">
+	<label ref-type="name-label">
+		<position x="-72.506" y="-21.3073"/>
+	</label>
+</relationship>
+
+</dbmodel>
