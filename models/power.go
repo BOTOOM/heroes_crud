@@ -11,7 +11,7 @@ import (
 )
 
 type Power struct {
-	Id       int       `orm:"column(id);pk"`
+	Id       int       `orm:"column(id);pk:auto"`
 	Name     string    `orm:"column(name)"`
 	CreateIn time.Time `orm:"column(create_in);type(timestamp without time zone);null"`
 	HeroId   *Hero     `orm:"column(hero_id);rel(fk)"`

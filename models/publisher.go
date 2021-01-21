@@ -11,7 +11,7 @@ import (
 )
 
 type Publisher struct {
-	Id       int       `orm:"column(id);pk"`
+	Id       int       `orm:"column(id);pk;auto"`
 	Name     string    `orm:"column(name)"`
 	Active   bool      `orm:"column(active);null"`
 	CreateIn time.Time `orm:"column(create_in);type(timestamp without time zone);null"`

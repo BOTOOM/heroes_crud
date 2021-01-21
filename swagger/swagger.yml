@@ -1,0 +1,414 @@
+swagger: "2.0"
+info:
+  title: beego Test API
+  description: beego has a very cool tools to autogenerate documents for your API
+  version: 1.0.0
+  termsOfService: http://beego.me/
+  contact:
+    email: astaxie@gmail.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+basePath: /v1
+paths:
+  /hero/:
+    get:
+      tags:
+      - hero
+      description: get Hero
+      operationId: HeroController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Hero'
+        "403":
+          description: ""
+    post:
+      tags:
+      - hero
+      description: create Hero
+      operationId: HeroController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Hero content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Hero'
+      responses:
+        "201":
+          description: '{int} models.Hero'
+        "403":
+          description: body is empty
+  /hero/{id}:
+    get:
+      tags:
+      - hero
+      description: get Hero by id
+      operationId: HeroController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Hero'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - hero
+      description: update the Hero
+      operationId: HeroController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Hero content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Hero'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Hero'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - hero
+      description: delete the Hero
+      operationId: HeroController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /power/:
+    get:
+      tags:
+      - power
+      description: get Power
+      operationId: PowerController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Power'
+        "403":
+          description: ""
+    post:
+      tags:
+      - power
+      description: create Power
+      operationId: PowerController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Power content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Power'
+      responses:
+        "201":
+          description: '{int} models.Power'
+        "403":
+          description: body is empty
+  /power/{id}:
+    get:
+      tags:
+      - power
+      description: get Power by id
+      operationId: PowerController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Power'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - power
+      description: update the Power
+      operationId: PowerController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Power content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Power'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Power'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - power
+      description: delete the Power
+      operationId: PowerController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+  /publisher/:
+    get:
+      tags:
+      - publisher
+      description: get Publisher
+      operationId: PublisherController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Publisher'
+        "403":
+          description: ""
+    post:
+      tags:
+      - publisher
+      description: create Publisher
+      operationId: PublisherController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Publisher content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Publisher'
+      responses:
+        "201":
+          description: '{int} models.Publisher'
+        "403":
+          description: body is empty
+  /publisher/{id}:
+    get:
+      tags:
+      - publisher
+      description: get Publisher by id
+      operationId: PublisherController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Publisher'
+        "403":
+          description: :id is empty
+    put:
+      tags:
+      - publisher
+      description: update the Publisher
+      operationId: PublisherController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Publisher content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Publisher'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Publisher'
+        "403":
+          description: :id is not int
+    delete:
+      tags:
+      - publisher
+      description: delete the Publisher
+      operationId: PublisherController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "403":
+          description: id is empty
+definitions:
+  models.Hero:
+    title: Hero
+    type: object
+    properties:
+      Age:
+        type: integer
+        format: int32
+      CreateIn:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      Money:
+        type: number
+        format: double
+      Name:
+        type: string
+      PublisherId:
+        $ref: '#/definitions/models.Publisher'
+  models.Power:
+    title: Power
+    type: object
+    properties:
+      CreateIn:
+        type: string
+        format: datetime
+      HeroId:
+        $ref: '#/definitions/models.Hero'
+      Id:
+        type: integer
+        format: int64
+      Name:
+        type: string
+  models.Publisher:
+    title: Publisher
+    type: object
+    properties:
+      Active:
+        type: boolean
+      CreateIn:
+        type: string
+        format: datetime
+      Id:
+        type: integer
+        format: int64
+      Name:
+        type: string
+tags:
+- name: publisher
+  description: |
+    PublisherController operations for Publisher
+- name: hero
+  description: |
+    HeroController operations for Hero
+- name: power
+  description: |
+    PowerController operations for Power

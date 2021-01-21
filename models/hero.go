@@ -11,7 +11,7 @@ import (
 )
 
 type Hero struct {
-	Id          int        `orm:"column(id);pk"`
+	Id          int        `orm:"column(id);pk:auto"`
 	Name        string     `orm:"column(name)"`
 	Age         int16      `orm:"column(age);null"`
 	Money       float64    `orm:"column(money);null"`
