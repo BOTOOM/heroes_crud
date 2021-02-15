@@ -2,7 +2,7 @@
 -- pgModeler  version: 0.9.3-beta1
 -- PostgreSQL version: 9.5
 -- Project Site: pgmodeler.io
--- Model Author: ---
+-- Model Author: BOTOOM ---
 
 -- Database creation must be performed outside a multi lined SQL file. 
 -- These commands were put in this file only as a convenience.
@@ -13,7 +13,6 @@
 -- ddl-end --
 
 CREATE SCHEMA IF NOT EXISTS hero;
-
 -- object: hero.publisher | type: TABLE --
 -- DROP TABLE IF EXISTS hero.publisher CASCADE;
 CREATE TABLE hero.publisher (

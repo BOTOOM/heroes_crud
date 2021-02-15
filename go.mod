@@ -8,4 +8,5 @@ require (
 	github.com/astaxie/beego v1.12.3
 	github.com/lib/pq v1.0.0
 	github.com/smartystreets/goconvey v1.6.4
+	golang.org/x/tools v0.1.0 // indirect
 )
