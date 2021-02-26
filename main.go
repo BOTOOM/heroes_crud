@@ -9,8 +9,14 @@ import (
 )
 
 func main() {
-	sqlconn, _ := beego.AppConfig.String("sqlconn")
-	orm.RegisterDataBase("default", "postgres", sqlconn)
+	schema, _ := beego.AppConfig.String("schema")
+	db, _ := beego.AppConfig.String("db")
+	user, _ := beego.AppConfig.String("user")
+	pass, _ := beego.AppConfig.String("pass")
+	host, _ := beego.AppConfig.String("host")
+	port, _ := beego.AppConfig.String("port")
+	// sqlconn, _ := beego.AppConfig.String("sqlconn")
+	orm.RegisterDataBase("default", "postgres", "postgres://"+user+":"+pass+"@"+host+":"+port+"/"+db+"?sslmode=disable&search_path="+schema)
 	if beego.BConfig.RunMode == "dev" {
 		beego.BConfig.WebConfig.DirectoryIndex = true
 		beego.BConfig.WebConfig.StaticDir["/swagger"] = "swagger"

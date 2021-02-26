@@ -1,0 +1,41 @@
+version: '3'
+
+services: 
+    postgres:
+        image: postgres
+        restart: always
+        container_name: postgresdb
+        environment: 
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: docker
+            POSTGRES_DB: heroes
+        volumes:
+            - postgresdb:/var/lib/postgresql/data
+        ports: 
+            - 5432:5432
+        expose: 
+            - 5432
+    
+    back:
+        container_name: "heroes-service"
+        restart: always
+        environment: 
+            - SCHEMA_NAME=hero
+            - DB_NAME=heroes
+            - DB_USER=postgres
+            - DB_PASS=docker
+            - DB_HOST=postgres
+            - DB_PORT=5432
+        build: .
+        command: sh -c 'bee migrate -driver=postgres -conn="postgres://postgres:docker@postgres:5432/heroes?sslmode=disable&search_path=public" || true; bee run'
+        ports: 
+            - 8080:8080
+        volumes: 
+            - .:$GOPATH/src/github.com/BOTOOM/heroes_crud
+        depends_on: 
+            - postgres
+        links: 
+            - postgres
+
+volumes:
+    postgresdb:
